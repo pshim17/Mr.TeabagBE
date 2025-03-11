@@ -1,21 +1,21 @@
 require 'rails_helper'
 
 RSpec.describe "Subscriptions", type: :request do
-  describe "GET all tea subscriptions" do
-    let!(:subscription1) { create(:subscription) }
-    let!(:subscription2) { create(:subscription) }
-    let!(:tea1) { create(:tea) }
-    let!(:tea2) { create(:tea) }
-    let!(:customer1) { create(:customer) }  
-    let!(:customer2) { create(:customer) } 
-    
-    before(:each) do
-      create(:tea_subscription, subscription: subscription1, tea: tea1)
-      create(:tea_subscription, subscription: subscription1, tea: tea2)
-      create(:customer_subscription, customer: customer1, subscription: subscription1)
-      create(:customer_subscription, customer: customer2, subscription: subscription2)
-    end
+  let!(:subscription1) { create(:subscription) }
+  let!(:subscription2) { create(:subscription) }
+  let!(:tea1) { create(:tea) }
+  let!(:tea2) { create(:tea) }
+  let!(:customer1) { create(:customer) }  
+  let!(:customer2) { create(:customer) } 
+  
+  before(:each) do
+    create(:tea_subscription, subscription: subscription1, tea: tea1)
+    create(:tea_subscription, subscription: subscription1, tea: tea2)
+    create(:customer_subscription, customer: customer1, subscription: subscription1)
+    create(:customer_subscription, customer: customer2, subscription: subscription2)
+  end
 
+  describe "GET all tea subscriptions" do
     it "returns a successful response" do
       get api_v1_subscriptions_path
       expect(response).to have_http_status(:success)
@@ -46,12 +46,7 @@ RSpec.describe "Subscriptions", type: :request do
     
     describe "GET One Tea subscription with teas and customers" do
       let!(:subscription) { create(:subscription) }
-      let!(:subscription) { create(:subscription) }
-      let!(:tea1) { create(:tea) }
-      let!(:tea2) { create(:tea) }
-      let!(:customer1) { create(:customer) }
-      let!(:customer2) { create(:customer) }
-    
+
       before(:each) do
         create(:tea_subscription, subscription: subscription, tea: tea1)
         create(:tea_subscription, subscription: subscription, tea: tea2)
