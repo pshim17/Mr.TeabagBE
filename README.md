@@ -8,9 +8,10 @@ The Tea Subscription Service is a full-stack application designed for managing t
 # Getting Started
 
 Clone down the repository to your local machine, cd into the directory and run:
-  - bundle install
-  - rails db:{drop,create,migrate,seed} or rails db:reset
-  - rails s
+
+  - `bundle install`
+  - `rails db:{drop,create,migrate,seed}` or `rails db:reset`
+  - `rails s`
 
 You can test the backend using the test suite or by interacting with the endpoints directly through a tool like Postman.
 
@@ -28,29 +29,28 @@ You can test the backend using the test suite or by interacting with the endpoin
 
 To create/initialize the database run:
 
-  `rails db:{drop,create,migrate,seed} or rails db:reset`
+  - `rails db:{drop,create,migrate,seed}` or `rails db:reset`
 
 # Endpoints and Sample Requests/Responses:
 
 GET All Tea Subscriptions:
 
-- GET http://localhost:3000/api/v1/subscriptions
+  `GET http://localhost:3000/api/v1/subscriptions`
 
 <img width="586" alt="Screenshot 2025-03-12 at 2 48 12 PM" src="https://github.com/user-attachments/assets/9b7a8e23-08b5-40a5-8835-00ad1f2b3b08" />
 
 GET One Tea Subscription by id: 3:
 
-- GET http://localhost:3000/api/v1/subscriptions/3
+  `GET http://localhost:3000/api/v1/subscriptions/3`
  
 <img width="678" alt="Screenshot 2025-03-12 at 2 50 12 PM" src="https://github.com/user-attachments/assets/a9e21219-ed22-409b-be62-7c1150501bca" />
 
 Cancel Subscription by id: 8 :
 
-- PATCH http://localhost:3000/api/v1/subscriptions/8
-
-  {
-    "isActive": false
-  }
+  `PATCH http://localhost:3000/api/v1/subscriptions/8`
+  `{
+      "isActive": false
+   }`
 
 Before: 
 
@@ -68,7 +68,7 @@ After:
 
 # How to run the test suite
 
-- bundle exec rspec spec
+- `bundle exec rspec spec`
 
 * Deployment instructions
 
