@@ -1,6 +1,6 @@
 class SubscriptionSerializer
   include JSONAPI::Serializer
-  attributes :id, :title, :price, :status, :frequency
+  attributes :id, :title, :price, :isActive, :frequency
 
   attribute :teas do |subscription|
     subscription.teas.map do |tea|

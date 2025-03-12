@@ -35,6 +35,6 @@ class Api::V1::SubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.permit(:status)
+    params.permit(:isActive)
   end
 end
