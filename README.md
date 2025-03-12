@@ -26,7 +26,9 @@ You can test the backend using the test suite or by interacting with the endpoin
 
 <img width="1627" alt="Screenshot 2025-03-12 at 2 44 05 PM" src="https://github.com/user-attachments/assets/92322b8b-f92e-41f2-bc59-50e5f44a1ae8" />
 
-run rails db:{drop,create,migrate,seed} or rails db:reset
+To create/initialize the database run:
+
+  `rails db:{drop,create,migrate,seed} or rails db:reset`
 
 # Endpoints and Sample Requests/Responses:
 
