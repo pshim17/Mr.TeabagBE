@@ -35,12 +35,12 @@ RSpec.describe "Subscriptions", type: :request do
 
       expect(subscriptions["data"][0]["attributes"]["title"]).to eq(subscription1.title)
       expect(subscriptions["data"][0]["attributes"]["price"]).to eq(subscription1.price.to_f.to_s)
-      expect(subscriptions["data"][0]["attributes"]["status"]).to eq(subscription1.status)
+      expect(subscriptions["data"][0]["attributes"]["isActive"]).to eq(subscription1.isActive)
       expect(subscriptions["data"][0]["attributes"]["frequency"]).to eq(subscription1.frequency)
 
       expect(subscriptions["data"][1]["attributes"]["title"]).to eq(subscription2.title)
       expect(subscriptions["data"][1]["attributes"]["price"]).to eq(subscription2.price.to_f.to_s)
-      expect(subscriptions["data"][1]["attributes"]["status"]).to eq(subscription2.status)
+      expect(subscriptions["data"][1]["attributes"]["isActive"]).to eq(subscription2.isActive)
       expect(subscriptions["data"][1]["attributes"]["frequency"]).to eq(subscription2.frequency)
     end
     
@@ -77,7 +77,7 @@ RSpec.describe "Subscriptions", type: :request do
       end
   
       it "returns a 404 error when subscription is not found" do
-        get api_v1_subscription_path(id: "nonexistent_id")
+        get api_v1_subscription_path(id: 9999)
 
         expect(response).to have_http_status(:not_found)
         error_message = JSON.parse(response.body)
@@ -85,18 +85,18 @@ RSpec.describe "Subscriptions", type: :request do
       end
     end
     
-    describe "PATCH Cancel Status" do
+    describe "PATCH Cancel isActive" do
       let!(:subscription) { create(:subscription) }
   
-      it "updates the subscription's status" do
-        patch api_v1_subscription_path(subscription.id), params: { status: false }
+      it "updates the subscription's isActive" do
+        patch api_v1_subscription_path(subscription.id), params: { isActive: false }
         subscription.reload
-        expect(subscription.status).to eq(false)
+        expect(subscription.isActive).to eq(false)
         expect(response).to have_http_status(:ok)
       end
 
       it "returns a 404 error" do
-        patch api_v1_subscription_path(id: "nonexistent_id"), params: { status: false }
+        patch api_v1_subscription_path(id: 999999), params: { isActive: false }
         expect(response).to have_http_status(:not_found)
         error_message = JSON.parse(response.body)
         expect(error_message["error"]).to eq("Subscription not found.")
