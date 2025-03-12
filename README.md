@@ -70,6 +70,6 @@ After:
 
 - `bundle exec rspec spec`
 
-* Deployment instructions
+# Deployment instructions
 
 - Coming Soon!
