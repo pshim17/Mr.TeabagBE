@@ -1,4 +1,4 @@
-# Mr. Teabag Readme - BE
+# Mr. Teabag ReadMe - BE
 
 <img width="1709" alt="Screenshot 2025-03-12 at 3 27 06 PM" src="https://github.com/user-attachments/assets/ee1c255a-49ce-44c2-9006-0199477b455c" />
 
